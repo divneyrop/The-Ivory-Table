@@ -1,4 +1,4 @@
-{% extends "core/base.html" %}
+{% extends "base.html" %}
 
 {% block title %}The Ivory Table | Home{% endblock %}
 
@@ -26,11 +26,11 @@ Discover The Ivory Table. Explore our menu and experience thoughtful dining.
                 </p>
 
                 <div class="d-flex flex-wrap gap-3 mt-4">
-                    <a href="/menu/" class="btn btn-brand">
+                    <a href="{% url 'menu:menu' %}" class="btn btn-brand">
                         Explore Our Menu
                     </a>
 
-                    <a href="/reservations/" class="btn btn-outline-brand">
+                    <a href="{% url 'reservations:reservations' %}" class="btn btn-outline-brand">
                         Reserve a Table
                     </a>
                 </div>
@@ -76,7 +76,7 @@ Discover The Ivory Table. Explore our menu and experience thoughtful dining.
                     about the experience we aim to create.
                 </p>
 
-                <a href="/about/" class="btn btn-outline-brand mt-3">
+                <a href="{% url 'core:about' %}" class="btn btn-outline-brand mt-3">
                     Discover Our Story
                 </a>
             </div>
@@ -151,7 +151,7 @@ Discover The Ivory Table. Explore our menu and experience thoughtful dining.
         </div>
 
         <div class="text-center mt-5">
-            <a href="/menu/" class="btn btn-brand">
+            <a href="{% url 'menu:menu' %}" class="btn btn-brand">
                 View Full Menu
             </a>
         </div>
@@ -230,7 +230,7 @@ Discover The Ivory Table. Explore our menu and experience thoughtful dining.
             Discover the menu and find something to look forward to.
         </p>
 
-        <a href="/menu/" class="btn btn-brand mt-3">
+        <a href="{% url 'menu:menu' %}" class="btn btn-brand mt-3">
             Explore the Full Menu
         </a>
 
