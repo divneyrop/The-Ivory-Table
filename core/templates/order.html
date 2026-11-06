@@ -1,0 +1,96 @@
+
+{% extends "core/base.html" %}
+
+{% block title %}Order Online | The Ivory Table{% endblock %}
+
+{% block meta_description %}
+Explore ordering options at The Ivory Table.
+{% endblock %}
+
+{% block content %}
+
+<section class="page-intro section-padding">
+    <div class="container text-center">
+        <span class="section-kicker">YOUR MEAL, YOUR WAY</span>
+        <h1 class="display-3 mt-3">Order Online</h1>
+        <p class="lead mx-auto mt-3" style="max-width: 650px;">
+            Explore the menu, choose your favourites and select how
+            you'd like to enjoy your meal.
+        </p>
+    </div>
+</section>
+
+<section class="section-padding">
+    <div class="container">
+
+        <div class="section-heading text-center mb-5">
+            <span class="section-kicker">STEP 01</span>
+            <h2 class="display-5 mt-2">Explore the Menu</h2>
+            <p class="mt-3">
+                Start by browsing the available dishes and deciding
+                what you'd like to order.
+            </p>
+            <a href="{% url 'menu:menu' %}" class="btn btn-brand mt-3">Browse Menu</a>
+        </div>
+
+        <div class="section-heading text-center mb-5 mt-5">
+            <span class="section-kicker">STEP 02</span>
+            <h2 class="display-5 mt-2">Choose Your Order Type</h2>
+            <p class="mt-3">
+                Select the option that best suits your plans.
+            </p>
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+                <div class="feature-card h-100 p-4 text-center">
+                    <div class="feature-number">01</div>
+                    <h3 class="h4 mt-3">Dine-in</h3>
+                    <p>
+                        Enjoy your meal at the restaurant in a welcoming
+                        dining environment.
+                    </p>
+                    <span class="badge text-bg-secondary">Option</span>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="feature-card h-100 p-4 text-center">
+                    <div class="feature-number">02</div>
+                    <h3 class="h4 mt-3">Delivery</h3>
+                    <p>
+                        Have your selected meal delivered to your
+                        preferred location.
+                    </p>
+                    <span class="badge text-bg-secondary">Option</span>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="feature-card h-100 p-4 text-center">
+                    <div class="feature-number">03</div>
+                    <h3 class="h4 mt-3">Takeaway</h3>
+                    <p>
+                        Place your order and enjoy your meal away
+                        from the restaurant.
+                    </p>
+                    <span class="badge text-bg-secondary">Option</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="cta-section p-4 p-md-5 text-center mt-5">
+            <span class="section-kicker">READY TO BEGIN?</span>
+            <h2 class="display-5 mt-3">Your next meal starts here.</h2>
+            <p class="mt-3">
+                Visit the menu to explore the available selections.
+            </p>
+            <a href="{% url 'menu:menu' %}" class="btn btn-brand mt-3">View Menu</a>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}
