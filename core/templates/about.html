@@ -1,0 +1,105 @@
+{% extends "core/base.html" %}
+
+{% block title %}Our Story | The Ivory Table{% endblock %}
+
+{% block meta_description %}
+Discover the story and values behind The Ivory Table.
+{% endblock %}
+
+{% block content %}
+
+<section class="page-intro section-padding">
+    <div class="container text-center">
+        <span class="section-kicker">GET TO KNOW US</span>
+        <h1 class="display-3 mt-3">Our Story</h1>
+        <p class="lead mx-auto mt-3" style="max-width: 650px;">
+            Every table has a story. Discover the thinking and values
+            behind The Ivory Table.
+        </p>
+    </div>
+</section>
+
+<section class="section-padding">
+    <div class="container">
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-6">
+                <div class="about-image-placeholder">
+                    <span>Restaurant Image</span>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <span class="section-kicker">WHO WE ARE</span>
+                <h2 class="display-5 mt-3">A place to gather and enjoy.</h2>
+
+                <p class="mt-4">
+                    The Ivory Table is built around the idea that dining
+                    should be more than simply sharing a meal. It is an
+                    opportunity to connect, explore flavours and enjoy
+                    the company around you.
+                </p>
+
+                <p>
+                    Our approach brings together food, atmosphere and
+                    thoughtful hospitality to create an experience
+                    worth returning to.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="section-padding featured-menu-section">
+    <div class="container">
+
+        <div class="section-heading text-center mb-5">
+            <span class="section-kicker">WHAT MATTERS TO US</span>
+            <h2 class="display-5 mt-2">Our Values</h2>
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-md-6 col-lg-4">
+                <div class="feature-card h-100 p-4">
+                    <div class="feature-number">01</div>
+                    <h3 class="h4 mt-3">Quality</h3>
+                    <p>We value care and attention in the ingredients, preparation and presentation of every meal.</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="feature-card h-100 p-4">
+                    <div class="feature-number">02</div>
+                    <h3 class="h4 mt-3">Hospitality</h3>
+                    <p>We believe every guest deserves a welcoming and comfortable dining experience.</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="feature-card h-100 p-4">
+                    <div class="feature-number">03</div>
+                    <h3 class="h4 mt-3">Experience</h3>
+                    <p>We appreciate the details that turn an ordinary meal into a memorable occasion.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="cta-section section-padding">
+    <div class="container text-center">
+        <span class="section-kicker">COME EXPERIENCE IT</span>
+        <h2 class="display-4 mt-3">There's a place for you at our table.</h2>
+        <p class="mt-3">Explore the menu or make plans for your next visit.</p>
+
+        <div class="d-flex justify-content-center flex-wrap gap-3 mt-4">
+            <a href="{% url 'menu:menu' %}" class="btn btn-brand">Explore Menu</a>
+            <a href="{% url 'reservations:reservations' %}" class="btn btn-outline-brand">Reserve a Table</a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
