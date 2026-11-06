@@ -1,0 +1,187 @@
+
+{% extends "core/base.html" %}
+
+{% block title %}Reservations | The Ivory Table{% endblock %}
+
+{% block meta_description %}
+Plan your visit and explore table reservation options at The Ivory Table.
+{% endblock %}
+
+{% block content %}
+
+<section class="page-intro section-padding">
+    <div class="container text-center">
+        <span class="section-kicker">SAVE YOUR PLACE</span>
+        <h1 class="display-3 mt-3">Reservations</h1>
+        <p class="lead mx-auto mt-3" style="max-width: 650px;">
+            Planning a visit? Share your preferred date and details
+            to request a table.
+        </p>
+    </div>
+</section>
+
+<section class="section-padding">
+    <div class="container">
+
+        <div class="row justify-content-center g-5">
+
+            <div class="col-lg-5">
+                <span class="section-kicker">PLAN YOUR VISIT</span>
+                <h2 class="display-5 mt-3">A table is waiting.</h2>
+
+                <p class="mt-4">
+                    Whether you're planning a casual meal, a gathering
+                    with friends or a special occasion, let us know
+                    when you'd like to visit.
+                </p>
+
+                <p>
+                    Complete the reservation request with your preferred
+                    date, time and party size.
+                </p>
+
+                <div class="mt-5">
+                    <h3 class="h5">Before You Submit</h3>
+                    <p>
+                        Please provide accurate contact details so your
+                        reservation request can be reviewed.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-7">
+                <div class="feature-card p-4 p-md-5">
+
+                    <h2 class="h3 mb-4">Reservation Request</h2>
+
+                    <form>
+
+                        <div class="row g-3">
+
+                            <div class="col-md-6">
+                                <label for="guestName" class="form-label">
+                                    Full Name
+                                </label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="guestName"
+                                    name="guest_name"
+                                    placeholder="Your full name"
+                                    required
+                                >
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="guestEmail" class="form-label">
+                                    Email Address
+                                </label>
+                                <input
+                                    type="email"
+                                    class="form-control"
+                                    id="guestEmail"
+                                    name="email"
+                                    placeholder="you@example.com"
+                                    required
+                                >
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="guestPhone" class="form-label">
+                                    Phone Number
+                                </label>
+                                <input
+                                    type="tel"
+                                    class="form-control"
+                                    id="guestPhone"
+                                    name="phone"
+                                    placeholder="Your phone number"
+                                    required
+                                >
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="guestCount" class="form-label">
+                                    Number of Guests
+                                </label>
+                                <select
+                                    class="form-select"
+                                    id="guestCount"
+                                    name="guests"
+                                    required
+                                >
+                                    <option value="" selected disabled>
+                                        Select party size
+                                    </option>
+                                    <option value="1">1 Guest</option>
+                                    <option value="2">2 Guests</option>
+                                    <option value="3">3 Guests</option>
+                                    <option value="4">4 Guests</option>
+                                    <option value="5">5 Guests</option>
+                                    <option value="6">6 Guests</option>
+                                    <option value="7+">7+ Guests</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="reservationDate" class="form-label">
+                                    Preferred Date
+                                </label>
+                                <input
+                                    type="date"
+                                    class="form-control"
+                                    id="reservationDate"
+                                    name="date"
+                                    required
+                                >
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="reservationTime" class="form-label">
+                                    Preferred Time
+                                </label>
+                                <input
+                                    type="time"
+                                    class="form-control"
+                                    id="reservationTime"
+                                    name="time"
+                                    required
+                                >
+                            </div>
+
+                            <div class="col-12">
+                                <label for="specialRequests" class="form-label">
+                                    Additional Requests
+                                </label>
+                                <textarea
+                                    class="form-control"
+                                    id="specialRequests"
+                                    name="requests"
+                                    rows="4"
+                                    placeholder="Any additional information..."
+                                ></textarea>
+                            </div>
+
+                            <div class="col-12">
+                                <button type="button" class="btn btn-brand w-100">
+                                    Submit Reservation Request
+                                </button>
+                            </div>
+
+                        </div>
+
+                    </form>
+
+                    <p class="small mt-3 mb-0">
+                        Frontend preview: reservation submission is not
+                        connected yet.
+                    </p>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}
