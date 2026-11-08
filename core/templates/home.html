@@ -61,6 +61,81 @@
     </div>
 </section>
 
+
+<!-- Featured Menu -->
+<section class="section-padding featured-menu-section">
+    <div class="container">
+
+        <div class="section-heading text-center mb-5">
+            <span class="section-kicker">A TASTE OF OUR MENU</span>
+            <h2 class="display-5 mt-2">Featured Dishes</h2>
+            <p class="mt-3">
+                Take a look at a selection from our menu.
+            </p>
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-md-6 col-lg-4">
+                <article class="dish-card h-100">
+                    <div class="dish-image-placeholder">
+                        <img src="{% static 'images/Charcoal-Grilled Beef Fillet.jpg' %}" alt="Charcoal-Grilled Beef Fillet" width="400" height="300">
+                    </div>
+
+                    <div class="p-4">
+                        <span class="section-kicker">FEATURED</span>
+                        <h3 class="h4 mt-2">Charcoal-Grilled Beef Fillet</h3>
+                        <p class="mb-0">
+                            Tender beef fillet, creamy potato purée, seasonal vegetables and a rich red-wine jus.
+                        </p>
+                    </div>
+                </article>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <article class="dish-card h-100">
+                    <div class="dish-image-placeholder">
+                        <img src="{% static 'images/Swahili Coconut Prawn Curry.jpg' %}" alt="Swahili Coconut Prawn Curry" width="400" height="300">
+                    </div>
+
+                    <div class="p-4">
+                        <span class="section-kicker">East African influence</span>
+                        <h3 class="h4 mt-2">Swahili Coconut Prawn Curry</h3>
+                        <p class="mb-0">
+                            Prawns simmered in a fragrant coconut curry with coastal spices, served with aromatic rice.
+                        </p>
+                    </div>
+                </article>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <article class="dish-card h-100">
+                    <div class="dish-image-placeholder">
+                        <!-- <span>Dish Image</span> -->
+                        <img src="{% static 'images/Kenyan Coffee Crème Brûlée.jpg' %}" alt="Featured Dish Three" width="400" height="300">
+                    </div>
+
+                    <div class="p-4">
+                        <span class="section-kicker">local touch</span>
+                        <h3 class="h4 mt-2">Kenyan Coffee Crème Brûlée</h3>
+                        <p class="mb-0">
+                            Silky coffee-infused custard beneath a delicate caramelised sugar crust.
+                        </p>
+                    </div>
+                </article>
+            </div>
+
+        </div>
+
+        <div class="text-center mt-5">
+            <a href="{% url 'menu:menu' %}" class="btn btn-brand">
+                View Full Menu
+            </a>
+        </div>
+
+    </div>
+</section>
+
 <section class="home-story section-padding" aria-labelledby="story-heading">
     <div class="container">
         <div class="row align-items-center g-5">
