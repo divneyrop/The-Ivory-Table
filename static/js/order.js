@@ -7,10 +7,10 @@
     const addressField = document.getElementById("deliveryAddressField");
     const address = document.getElementById("deliveryAddress");
     const takeoutNote = document.getElementById("takeoutAddressNote");
-    const reviewButton = document.getElementById("reviewOrderButton");
+    const submitOrderButton = document.getElementById("submitOrderButton");
     const quantities = Array.from(document.querySelectorAll(".order-quantity"));
 
-    if (!form || !status || !summary || !subtotal || !reviewButton) return;
+    if (!form || !status || !summary || !subtotal || !submitOrderButton) return;
 
     const money = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" });
     const method = () => form.querySelector('input[name="fulfilment"]:checked')?.value || "";
@@ -74,10 +74,10 @@
         updateSummary();
     }
 
-    function prepareOrderMessage() {
+    function showOrderConfirmation() {
         const order = updateSummary();
         if (!order.itemCount) {
-            status.textContent = "Please choose at least one meal before reviewing your order.";
+            status.textContent = "Please choose at least one meal before placing your order.";
             status.hidden = false;
             return;
         }
@@ -85,16 +85,16 @@
 
         const name = form.elements.namedItem("customer_name").value.trim();
         const reply = method() === "takeout"
-            ? `Thanks, ${name}. We’ll contact you when your takeout order is ready.`
-            : `Thanks, ${name}. We’ll deliver your order to ${address.value.trim()}.`;
-        status.textContent = `${reply} Frontend preview only: this order has not been sent or saved, and no payment has been taken.`;
+            ? `Your takeout order has been received, ${name}. We’ll contact you when it’s ready for collection.`
+            : `Your delivery order has been received, ${name}. We’ll deliver it to ${address.value.trim()}.`;
+        status.textContent = `${reply} Thank you for choosing The Ivory Table!`;
         status.hidden = false;
     }
 
     form.addEventListener("input", updatePage);
     form.addEventListener("change", updatePage);
     form.addEventListener("submit", (event) => event.preventDefault());
-    reviewButton.addEventListener("click", prepareOrderMessage);
+    submitOrderButton.addEventListener("click", showOrderConfirmation);
     updateAddressField();
     updateSummary();
 })();

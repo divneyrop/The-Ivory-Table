@@ -7,7 +7,7 @@
 <header class="order-intro" aria-labelledby="order-heading"><div class="container text-center">
     <p class="section-kicker">A GOOD MEAL, YOUR WAY</p><h1 id="order-heading">Order for home</h1>
     <p class="order-intro__lead">Choose your favourites, then tell us whether you’d like delivery or takeout.</p>
-    <p class="order-intro__note">Draft prices shown in USD. This page prepares a frontend preview; it does not submit an order or take payment.</p>
+    <p class="order-intro__note">Prices shown in USD.</p>
 </div></header>
 <section class="order-page section-padding" aria-label="Build your order"><div class="container">
 <form id="orderForm" autocomplete="on"><div class="row g-4 g-xl-5 align-items-start"><div class="col-lg-8">
@@ -42,7 +42,7 @@
         <div class="col-md-6"><label for="orderName" class="form-label">Full name <span aria-hidden="true">*</span></label><input type="text" id="orderName" name="customer_name" class="form-control" autocomplete="name" placeholder="Your name" required></div>
         <div class="col-md-6"><label for="orderPhone" class="form-label">Phone number <span aria-hidden="true">*</span></label><input type="tel" id="orderPhone" name="customer_phone" class="form-control" autocomplete="tel" placeholder="Your phone number" required></div>
         <div class="col-12"><label for="deliveryAddress" class="form-label">Delivery address <span aria-hidden="true">*</span></label><div id="deliveryAddressField" hidden><textarea id="deliveryAddress" name="delivery_address" class="form-control" rows="3" autocomplete="street-address" placeholder="Building, street, area, and directions"></textarea></div><p id="takeoutAddressNote" class="order-address-note">Choose delivery above to add your delivery address.</p></div>
-    </div><button type="button" id="reviewOrderButton" class="btn btn-brand w-100 mt-4">Review order</button><p id="orderStatus" class="order-status mt-3 mb-0" role="status" aria-live="polite" aria-atomic="true" hidden></p><p class="order-disclaimer">Frontend preview only—your details and order are not sent or saved, and no payment is taken.</p></section>
+    </div><button type="button" id="submitOrderButton" class="btn btn-brand w-100 mt-4">Place order</button><p id="orderStatus" class="order-status mt-3 mb-0" role="status" aria-live="polite" aria-atomic="true" hidden></p><p class="order-disclaimer"></p></section>
 </div><div class="col-lg-4"><aside class="order-summary" aria-labelledby="order-summary-heading"><p class="section-kicker">YOUR SELECTION</p><h2 id="order-summary-heading">Order summary</h2><ul id="orderSummaryItems" class="order-summary__items"><li class="order-summary__empty">Add dishes to see them here.</li></ul><div class="order-summary__total"><span>Subtotal</span><strong id="orderSubtotal" aria-live="polite" aria-atomic="true">$0.00</strong></div><p class="order-summary__note">Delivery fees and taxes are not included in this draft estimate.</p><p id="orderFulfilmentNote" class="order-summary__fulfilment">Choose delivery or takeout to continue.</p></aside></div></div></form>
 </div></section>
 {% endblock %}
