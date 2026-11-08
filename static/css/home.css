@@ -304,3 +304,19 @@
         transform: none;
     }
 }
+
+.dish-card-link {
+    color: inherit;
+    display: block;
+    text-decoration: none;
+}
+
+.dish-card-link:hover {
+    color: inherit;
+}
+
+.dish-card-link:focus-visible {
+    border-radius: 2px;
+    outline: 3px solid var(--color-gold);
+    outline-offset: 4px;
+}
