@@ -66,6 +66,49 @@
     padding-top: 1rem;
 }
 
+.reservation-status {
+    background: rgba(181, 139, 80, 0.1);
+    border-left: 2px solid var(--color-gold);
+    color: var(--color-ivory);
+    font-size: 0.9rem;
+    padding: 1rem 1.1rem;
+}
+
+.reservation-contact {
+    background: var(--color-dark);
+    border-top: 1px solid var(--color-border);
+}
+
+.reservation-contact__heading {
+    margin: 0 auto 2.5rem;
+    max-width: 42rem;
+}
+
+.reservation-contact__heading h2 {
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    letter-spacing: -0.04em;
+    margin: 0.7rem 0;
+}
+
+.reservation-contact__card {
+    background: var(--color-charcoal);
+    border: 1px solid var(--color-border);
+    padding: 1.5rem;
+}
+
+.reservation-contact__card h3 {
+    font-size: 1.45rem;
+    margin: 0.5rem 0 0.65rem;
+}
+
+.reservation-contact__label {
+    color: var(--color-gold);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    margin: 0;
+}
+
 .reservation-preview {
     background:
         radial-gradient(ellipse at 100% 0, rgba(181, 139, 80, 0.1), transparent 45%),
