@@ -1,96 +1,49 @@
-
 {% extends "base.html" %}
-
-{% block title %}Order Online | The Ivory Table{% endblock %}
-
-{% block meta_description %}
-Explore ordering options at The Ivory Table.
-{% endblock %}
-
+{% load static %}
+{% block title %}Order | The Ivory Table{% endblock %}
+{% block meta_description %}Choose dishes from The Ivory Table menu and prepare a takeaway or delivery order.{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'css/order.css' %}">{% endblock %}
 {% block content %}
+<header class="order-intro" aria-labelledby="order-heading"><div class="container text-center">
+    <p class="section-kicker">A GOOD MEAL, YOUR WAY</p><h1 id="order-heading">Order for home</h1>
+    <p class="order-intro__lead">Choose your favourites, then tell us whether you’d like delivery or takeout.</p>
+    <p class="order-intro__note">Draft prices shown in USD. This page prepares a frontend preview; it does not submit an order or take payment.</p>
+</div></header>
+<section class="order-page section-padding" aria-label="Build your order"><div class="container">
+<form id="orderForm" autocomplete="on"><div class="row g-4 g-xl-5 align-items-start"><div class="col-lg-8">
+    <fieldset class="order-method"><legend class="section-kicker">HOW WOULD YOU LIKE YOUR ORDER?</legend><div class="row g-3">
+        <div class="col-md-6"><label class="order-method-option"><input type="radio" name="fulfilment" value="takeout" required><span class="order-method-option__copy"><strong>Takeout</strong><span>We’ll contact you when it’s ready for collection.</span></span></label></div>
+        <div class="col-md-6"><label class="order-method-option"><input type="radio" name="fulfilment" value="delivery" required><span class="order-method-option__copy"><strong>Delivery</strong><span>Tell us where you’d like your order delivered.</span></span></label></div>
+    </div></fieldset>
+    <nav class="order-category-nav" aria-label="Order menu sections"><a href="#order-starters">To begin</a><a href="#order-mains">Mains</a><a href="#order-desserts">Something sweet</a></nav>
 
-<section class="page-intro section-padding">
-    <div class="container text-center">
-        <span class="section-kicker">YOUR MEAL, YOUR WAY</span>
-        <h1 class="display-3 mt-3">Order Online</h1>
-        <p class="lead mx-auto mt-3" style="max-width: 650px;">
-            Explore the menu, choose your favourites and select how
-            you'd like to enjoy your meal.
-        </p>
-    </div>
-</section>
+    <section class="order-category" id="order-starters" aria-labelledby="order-starters-heading"><div class="order-category__heading"><p class="section-kicker">FIRST, SOMETHING TO SHARE</p><h2 id="order-starters-heading">To begin</h2></div><div class="row g-3">
+        <div class="col-md-6 col-xl-4"><article class="order-item"><figure class="order-item__image"><img src="{% static 'images/menu/Heirloom-Tomato&Burrata.jpg' %}" alt="Tomatoes and burrata arranged on a plate" width="500" height="500" loading="lazy" decoding="async"></figure><div class="order-item__body"><p class="order-item__type">Starter</p><h3>Heirloom Tomato &amp; Burrata</h3><p class="order-item__description">Ripe tomatoes and soft, creamy burrata in a fresh, simple opening.</p><div class="order-item__purchase"><span class="order-item__price">$11.00</span><label for="qty-burrata">Qty</label><input id="qty-burrata" class="order-quantity" type="number" min="0" max="10" step="1" value="0" inputmode="numeric" data-name="Heirloom Tomato &amp; Burrata" data-price="11" aria-label="Quantity of Heirloom Tomato and Burrata"><span class="order-line-total" id="line-qty-burrata">$0.00</span></div></div></article></div>
+        <div class="col-md-6 col-xl-4"><article class="order-item"><figure class="order-item__image"><img src="{% static 'images/menu/Spiced-Beef-Croquettes.jpg' %}" alt="Golden beef croquettes ready to share" width="676" height="676" loading="lazy" decoding="async"></figure><div class="order-item__body"><p class="order-item__type">Starter</p><h3>Spiced Beef Croquettes</h3><p class="order-item__description">Crisp, golden bites with warmly seasoned beef and a tender centre.</p><div class="order-item__purchase"><span class="order-item__price">$9.00</span><label for="qty-croquettes">Qty</label><input id="qty-croquettes" class="order-quantity" type="number" min="0" max="10" step="1" value="0" inputmode="numeric" data-name="Spiced Beef Croquettes" data-price="9" aria-label="Quantity of Spiced Beef Croquettes"><span class="order-line-total" id="line-qty-croquettes">$0.00</span></div></div></article></div>
+        <div class="col-md-6 col-xl-4"><article class="order-item"><figure class="order-item__image"><img src="{% static 'images/menu/Coconut-Chilli-Prawns.jpg' %}" alt="Prawns served with coconut and chilli" width="638" height="510" loading="lazy" decoding="async"></figure><div class="order-item__body"><p class="order-item__type">Starter</p><h3>Coconut-Chilli Prawns</h3><p class="order-item__description">Succulent prawns with coconut richness and a lively touch of chilli.</p><div class="order-item__purchase"><span class="order-item__price">$12.00</span><label for="qty-prawns">Qty</label><input id="qty-prawns" class="order-quantity" type="number" min="0" max="10" step="1" value="0" inputmode="numeric" data-name="Coconut-Chilli Prawns" data-price="12" aria-label="Quantity of Coconut-Chilli Prawns"><span class="order-line-total" id="line-qty-prawns">$0.00</span></div></div></article></div>
+    </div></section>
 
-<section class="section-padding">
-    <div class="container">
+    <section class="order-category" id="order-mains" aria-labelledby="order-mains-heading"><div class="order-category__heading"><p class="section-kicker">AT THE HEART OF THE TABLE</p><h2 id="order-mains-heading">Mains</h2></div><div class="row g-3">
+        <div class="col-md-6 col-xl-4"><article class="order-item"><figure class="order-item__image"><img src="{% static 'images/menu/Charcoal-Grilled Beef Fillet.jpg' %}" alt="Sliced beef fillet served over potato purée with sauce" width="1024" height="1024" loading="lazy" decoding="async"></figure><div class="order-item__body"><p class="order-item__type">From the grill</p><h3>Charcoal-Grilled Beef Fillet</h3><p class="order-item__description">Tender beef fillet, creamy potato purée, seasonal vegetables, and red-wine jus.</p><div class="order-item__purchase"><span class="order-item__price">$27.00</span><label for="qty-fillet">Qty</label><input id="qty-fillet" class="order-quantity" type="number" min="0" max="10" step="1" value="0" inputmode="numeric" data-name="Charcoal-Grilled Beef Fillet" data-price="27" aria-label="Quantity of Charcoal-Grilled Beef Fillet"><span class="order-line-total" id="line-qty-fillet">$0.00</span></div></div></article></div>
+        <div class="col-md-6 col-xl-4"><article class="order-item"><figure class="order-item__image"><img src="{% static 'images/menu/Swahili Coconut Prawn Curry.jpg' %}" alt="Coconut prawn curry served with rice" width="1024" height="1024" loading="lazy" decoding="async"></figure><div class="order-item__body"><p class="order-item__type">Coastal influence</p><h3>Swahili Coconut Prawn Curry</h3><p class="order-item__description">Prawns simmered in fragrant coconut curry with coastal spices and rice.</p><div class="order-item__purchase"><span class="order-item__price">$22.00</span><label for="qty-curry">Qty</label><input id="qty-curry" class="order-quantity" type="number" min="0" max="10" step="1" value="0" inputmode="numeric" data-name="Swahili Coconut Prawn Curry" data-price="22" aria-label="Quantity of Swahili Coconut Prawn Curry"><span class="order-line-total" id="line-qty-curry">$0.00</span></div></div></article></div>
+        <div class="col-md-6 col-xl-4"><article class="order-item"><figure class="order-item__image"><img src="{% static 'images/menu/Slow-Braised Lamb Shank.jpg' %}" alt="Slow-braised lamb shank served with its rich sauce" width="582" height="519" loading="lazy" decoding="async"></figure><div class="order-item__body"><p class="order-item__type">Slow cooked</p><h3>Slow-Braised Lamb Shank</h3><p class="order-item__description">Slow-cooked until tender, with a deep, savoury sauce for a leisurely meal.</p><div class="order-item__purchase"><span class="order-item__price">$24.00</span><label for="qty-lamb">Qty</label><input id="qty-lamb" class="order-quantity" type="number" min="0" max="10" step="1" value="0" inputmode="numeric" data-name="Slow-Braised Lamb Shank" data-price="24" aria-label="Quantity of Slow-Braised Lamb Shank"><span class="order-line-total" id="line-qty-lamb">$0.00</span></div></div></article></div>
+        <div class="col-md-6 col-xl-4"><article class="order-item"><figure class="order-item__image"><img src="{% static 'images/menu/Roasted Cauliflower Steak.jpg' %}" alt="Roasted cauliflower served as a plant-led main course" width="1080" height="1080" loading="lazy" decoding="async"></figure><div class="order-item__body"><p class="order-item__type">Plant led</p><h3>Roasted Cauliflower Steak</h3><p class="order-item__description">A golden-roasted, plant-led centrepiece with warm seasoning and a satisfying finish.</p><div class="order-item__purchase"><span class="order-item__price">$16.00</span><label for="qty-cauliflower">Qty</label><input id="qty-cauliflower" class="order-quantity" type="number" min="0" max="10" step="1" value="0" inputmode="numeric" data-name="Roasted Cauliflower Steak" data-price="16" aria-label="Quantity of Roasted Cauliflower Steak"><span class="order-line-total" id="line-qty-cauliflower">$0.00</span></div></div></article></div>
+        <div class="col-md-6 col-xl-4"><article class="order-item"><figure class="order-item__image"><img src="{% static 'images/menu/Pan-Seared Salmon.jpg' %}" alt="Pan-seared salmon plated with a seasonal accompaniment" width="1000" height="667" loading="lazy" decoding="async"></figure><div class="order-item__body"><p class="order-item__type">From the pan</p><h3>Pan-Seared Salmon</h3><p class="order-item__description">Salmon seared crisp outside and tender within, with a seasonal accompaniment.</p><div class="order-item__purchase"><span class="order-item__price">$23.00</span><label for="qty-salmon">Qty</label><input id="qty-salmon" class="order-quantity" type="number" min="0" max="10" step="1" value="0" inputmode="numeric" data-name="Pan-Seared Salmon" data-price="23" aria-label="Quantity of Pan-Seared Salmon"><span class="order-line-total" id="line-qty-salmon">$0.00</span></div></div></article></div>
+        <div class="col-md-6 col-xl-4"><article class="order-item"><figure class="order-item__image"><img src="{% static 'images/menu/Wild Mushroom Risotto.jpg' %}" alt="Wild mushroom risotto finished with herbs" width="800" height="533" loading="lazy" decoding="async"></figure><div class="order-item__body"><p class="order-item__type">Vegetarian</p><h3>Wild Mushroom Risotto</h3><p class="order-item__description">A comforting, slow-stirred risotto with earthy wild mushrooms and a creamy finish.</p><div class="order-item__purchase"><span class="order-item__price">$18.00</span><label for="qty-risotto">Qty</label><input id="qty-risotto" class="order-quantity" type="number" min="0" max="10" step="1" value="0" inputmode="numeric" data-name="Wild Mushroom Risotto" data-price="18" aria-label="Quantity of Wild Mushroom Risotto"><span class="order-line-total" id="line-qty-risotto">$0.00</span></div></div></article></div>
+    </div></section>
 
-        <div class="section-heading text-center mb-5">
-            <span class="section-kicker">STEP 01</span>
-            <h2 class="display-5 mt-2">Explore the Menu</h2>
-            <p class="mt-3">
-                Start by browsing the available dishes and deciding
-                what you'd like to order.
-            </p>
-            <a href="{% url 'menu:menu' %}" class="btn btn-brand mt-3">Browse Menu</a>
-        </div>
+    <section class="order-category" id="order-desserts" aria-labelledby="order-desserts-heading"><div class="order-category__heading"><p class="section-kicker">A LITTLE SOMETHING TO FINISH</p><h2 id="order-desserts-heading">Something sweet</h2></div><div class="row g-3">
+        <div class="col-md-6 col-xl-4"><article class="order-item"><figure class="order-item__image"><img src="{% static 'images/menu/Kenyan Coffee Crème Brûlée.jpg' %}" alt="Coffee crème brûlée topped with cream and crisp caramel" width="2500" height="1667" loading="lazy" decoding="async"></figure><div class="order-item__body"><p class="order-item__type">A local touch</p><h3>Kenyan Coffee Crème Brûlée</h3><p class="order-item__description">Silky coffee-infused custard beneath a delicate layer of crisp caramel.</p><div class="order-item__purchase"><span class="order-item__price">$9.00</span><label for="qty-brulee">Qty</label><input id="qty-brulee" class="order-quantity" type="number" min="0" max="10" step="1" value="0" inputmode="numeric" data-name="Kenyan Coffee Crème Brûlée" data-price="9" aria-label="Quantity of Kenyan Coffee Crème Brûlée"><span class="order-line-total" id="line-qty-brulee">$0.00</span></div></div></article></div>
+        <div class="col-md-6 col-xl-4"><article class="order-item"><figure class="order-item__image"><img src="{% static 'images/menu/Mango & Passion Pavlova.jpg' %}" alt="Meringue pavlova finished with mango and passion fruit" width="3840" height="2561" loading="lazy" decoding="async"></figure><div class="order-item__body"><p class="order-item__type">Fresh &amp; bright</p><h3>Mango &amp; Passion Pavlova</h3><p class="order-item__description">Light meringue with mango and passion fruit for a bright, tropical finish.</p><div class="order-item__purchase"><span class="order-item__price">$9.00</span><label for="qty-pavlova">Qty</label><input id="qty-pavlova" class="order-quantity" type="number" min="0" max="10" step="1" value="0" inputmode="numeric" data-name="Mango &amp; Passion Pavlova" data-price="9" aria-label="Quantity of Mango and Passion Pavlova"><span class="order-line-total" id="line-qty-pavlova">$0.00</span></div></div></article></div>
+        <div class="col-md-6 col-xl-4"><article class="order-item"><figure class="order-item__image"><img src="{% static 'images/menu/Dark Chocolate Fondant.jpg' %}" alt="Dark chocolate fondant with a soft centre" width="1536" height="1024" loading="lazy" decoding="async"></figure><div class="order-item__body"><p class="order-item__type">Rich &amp; indulgent</p><h3>Dark Chocolate Fondant</h3><p class="order-item__description">A warm chocolate dessert with a soft centre and a rich, lingering finish.</p><div class="order-item__purchase"><span class="order-item__price">$10.00</span><label for="qty-fondant">Qty</label><input id="qty-fondant" class="order-quantity" type="number" min="0" max="10" step="1" value="0" inputmode="numeric" data-name="Dark Chocolate Fondant" data-price="10" aria-label="Quantity of Dark Chocolate Fondant"><span class="order-line-total" id="line-qty-fondant">$0.00</span></div></div></article></div>
+    </div></section>
 
-        <div class="section-heading text-center mb-5 mt-5">
-            <span class="section-kicker">STEP 02</span>
-            <h2 class="display-5 mt-2">Choose Your Order Type</h2>
-            <p class="mt-3">
-                Select the option that best suits your plans.
-            </p>
-        </div>
-
-        <div class="row g-4">
-
-            <div class="col-md-4">
-                <div class="feature-card h-100 p-4 text-center">
-                    <div class="feature-number">01</div>
-                    <h3 class="h4 mt-3">Dine-in</h3>
-                    <p>
-                        Enjoy your meal at the restaurant in a welcoming
-                        dining environment.
-                    </p>
-                    <span class="badge text-bg-secondary">Option</span>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="feature-card h-100 p-4 text-center">
-                    <div class="feature-number">02</div>
-                    <h3 class="h4 mt-3">Delivery</h3>
-                    <p>
-                        Have your selected meal delivered to your
-                        preferred location.
-                    </p>
-                    <span class="badge text-bg-secondary">Option</span>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="feature-card h-100 p-4 text-center">
-                    <div class="feature-number">03</div>
-                    <h3 class="h4 mt-3">Takeaway</h3>
-                    <p>
-                        Place your order and enjoy your meal away
-                        from the restaurant.
-                    </p>
-                    <span class="badge text-bg-secondary">Option</span>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="cta-section p-4 p-md-5 text-center mt-5">
-            <span class="section-kicker">READY TO BEGIN?</span>
-            <h2 class="display-5 mt-3">Your next meal starts here.</h2>
-            <p class="mt-3">
-                Visit the menu to explore the available selections.
-            </p>
-            <a href="{% url 'menu:menu' %}" class="btn btn-brand mt-3">View Menu</a>
-        </div>
-
-    </div>
-</section>
-
+    <section class="order-customer" aria-labelledby="customer-heading"><p class="section-kicker">WHERE SHOULD WE REACH YOU?</p><h2 id="customer-heading">Your details</h2><div class="row g-3">
+        <div class="col-md-6"><label for="orderName" class="form-label">Full name <span aria-hidden="true">*</span></label><input type="text" id="orderName" name="customer_name" class="form-control" autocomplete="name" placeholder="Your name" required></div>
+        <div class="col-md-6"><label for="orderPhone" class="form-label">Phone number <span aria-hidden="true">*</span></label><input type="tel" id="orderPhone" name="customer_phone" class="form-control" autocomplete="tel" placeholder="Your phone number" required></div>
+        <div class="col-12"><label for="deliveryAddress" class="form-label">Delivery address <span aria-hidden="true">*</span></label><div id="deliveryAddressField" hidden><textarea id="deliveryAddress" name="delivery_address" class="form-control" rows="3" autocomplete="street-address" placeholder="Building, street, area, and directions"></textarea></div><p id="takeoutAddressNote" class="order-address-note">Choose delivery above to add your delivery address.</p></div>
+    </div><button type="button" id="reviewOrderButton" class="btn btn-brand w-100 mt-4">Review order</button><p id="orderStatus" class="order-status mt-3 mb-0" role="status" aria-live="polite" aria-atomic="true" hidden></p><p class="order-disclaimer">Frontend preview only—your details and order are not sent or saved, and no payment is taken.</p></section>
+</div><div class="col-lg-4"><aside class="order-summary" aria-labelledby="order-summary-heading"><p class="section-kicker">YOUR SELECTION</p><h2 id="order-summary-heading">Order summary</h2><ul id="orderSummaryItems" class="order-summary__items"><li class="order-summary__empty">Add dishes to see them here.</li></ul><div class="order-summary__total"><span>Subtotal</span><strong id="orderSubtotal" aria-live="polite" aria-atomic="true">$0.00</strong></div><p class="order-summary__note">Delivery fees and taxes are not included in this draft estimate.</p><p id="orderFulfilmentNote" class="order-summary__fulfilment">Choose delivery or takeout to continue.</p></aside></div></div></form>
+</div></section>
 {% endblock %}
+{% block extra_js %}<script src="{% static 'js/order.js' %}" defer></script>{% endblock %}
