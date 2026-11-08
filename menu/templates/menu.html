@@ -1,9 +1,12 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}Our Menu | The Ivory Table{% endblock %}
 
-{% block meta_description %}
-Explore the menu at The Ivory Table.
+{% block meta_description %}Explore dishes from six continents at The Ivory Table.{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/menu.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -13,129 +16,61 @@ Explore the menu at The Ivory Table.
         <span class="section-kicker">A TASTE OF THE IVORY TABLE</span>
         <h1 class="display-3 mt-3">Our Menu</h1>
         <p class="lead mx-auto mt-3" style="max-width: 650px;">
-            Explore a selection of dishes prepared to bring good food
-            and memorable moments to the table.
+            Six continents, two dishes each. Every dish is listed with its ingredients.
         </p>
     </div>
 </section>
 
-<section class="section-padding">
+<nav class="continent-nav" aria-label="Menu sections">
     <div class="container">
+        {% for category in categories %}
+        <a href="#{{ category.name|slugify }}">{{ category.name }}</a>
+        {% endfor %}
+    </div>
+</nav>
 
+{% for category in categories %}
+<section class="section-padding menu-continent" id="{{ category.name|slugify }}">
+    <div class="container">
         <div class="section-heading text-center mb-5">
-            <span class="section-kicker">EXPLORE OUR SELECTION</span>
-            <h2 class="display-5 mt-2">Made to Be Savoured</h2>
+            <span class="section-kicker">{{ category.tagline }}</span>
+            <h2 class="display-5 mt-2">{{ category.name }}</h2>
         </div>
 
-        <div class="row g-4">
+        <div class="row g-4 justify-content-center">
+            {% for item in category.items %}
+            <div class="col-md-6 col-lg-5">
+                <article class="dish-card menu-card h-100">
+                    <img src="{% static 'images/menu/' %}{{ item.image }}" alt="{{ item.name }}" class="dish-photo" loading="lazy">
 
-            <div class="col-md-6 col-lg-4">
-                <article class="dish-card h-100">
-                    <div class="dish-image-placeholder">
-                        <span>Dish Image</span>
-                    </div>
                     <div class="p-4">
-                        <span class="section-kicker">STARTERS</span>
-                        <h2 class="h4 mt-2">Seasonal Starter</h2>
-                        <p>A carefully prepared opening to your dining experience, featuring a balanced mix of flavours.
-                        </p>
+                        <span class="section-kicker">{{ item.course }}</span>
+                        <h3 class="h4 mt-2">{{ item.name }}</h3>
+                        <p>{{ item.description }}</p>
+
+                        <h4 class="ingredients-title">Ingredients</h4>
+                        <ul class="ingredient-list">
+                            {% for ingredient in item.ingredients %}
+                            <li>{{ ingredient }}</li>
+                            {% endfor %}
+                        </ul>
+
+                        <div class="diet-tags">
+                            {% for tag in item.tags %}<span>{{ tag }}</span>{% endfor %}
+                        </div>
+
                         <div class="d-flex justify-content-between align-items-center mt-3">
-                            <span class="text-secondary">Price to be confirmed</span>
+                            <span class="dish-price">KES {{ item.price }}</span>
                             <a href="{% url 'core:order' %}" class="btn btn-brand">Order Now</a>
                         </div>
                     </div>
                 </article>
             </div>
-
-            <div class="col-md-6 col-lg-4">
-                <article class="dish-card h-100">
-                    <div class="dish-image-placeholder">
-                        <span>Dish Image</span>
-                    </div>
-                    <div class="p-4">
-                        <span class="section-kicker">MAINS</span>
-                        <h2 class="h4 mt-2">House Signature Main</h2>
-                        <p>A satisfying main course prepared with complementary ingredients and thoughtful seasoning.
-                        </p>
-                        <div class="d-flex justify-content-between align-items-center mt-3">
-                            <span class="text-secondary">Price to be confirmed</span>
-                            <a href="{% url 'core:order' %}" class="btn btn-brand">Order Now</a>
-                        </div>
-                    </div>
-                </article>
-            </div>
-
-            <div class="col-md-6 col-lg-4">
-                <article class="dish-card h-100">
-                    <div class="dish-image-placeholder">
-                        <span>Dish Image</span>
-                    </div>
-                    <div class="p-4">
-                        <span class="section-kicker">GRILL</span>
-                        <h2 class="h4 mt-2">Grilled Selection</h2>
-                        <p>A flavourful grilled option served with a complementary accompaniment.</p>
-                        <div class="d-flex justify-content-between align-items-center mt-3">
-                            <span class="text-secondary">Price to be confirmed</span>
-                            <a href="{% url 'core:order' %}" class="btn btn-brand">Order Now</a>
-                        </div>
-                    </div>
-                </article>
-            </div>
-
-            <div class="col-md-6 col-lg-4">
-                <article class="dish-card h-100">
-                    <div class="dish-image-placeholder">
-                        <span>Dish Image</span>
-                    </div>
-                    <div class="p-4">
-                        <span class="section-kicker">PLANT-BASED</span>
-                        <h2 class="h4 mt-2">Garden-Inspired Bowl</h2>
-                        <p>A colourful combination of ingredients brought together for a fresh and satisfying meal.</p>
-                        <div class="d-flex justify-content-between align-items-center mt-3">
-                            <span class="text-secondary">Price to be confirmed</span>
-                            <a href="{% url 'core:order' %}" class="btn btn-brand">Order Now</a>
-                        </div>
-                    </div>
-                </article>
-            </div>
-
-            <div class="col-md-6 col-lg-4">
-                <article class="dish-card h-100">
-                    <div class="dish-image-placeholder">
-                        <span>Dish Image</span>
-                    </div>
-                    <div class="p-4">
-                        <span class="section-kicker">SIDES</span>
-                        <h2 class="h4 mt-2">House Side</h2>
-                        <p>A versatile accompaniment designed to complement your choice of main course.</p>
-                        <div class="d-flex justify-content-between align-items-center mt-3">
-                            <span class="text-secondary">Price to be confirmed</span>
-                            <a href="{% url 'core:order' %}" class="btn btn-brand">Order Now</a>
-                        </div>
-                    </div>
-                </article>
-            </div>
-
-            <div class="col-md-6 col-lg-4">
-                <article class="dish-card h-100">
-                    <div class="dish-image-placeholder">
-                        <span>Drink Image</span>
-                    </div>
-                    <div class="p-4">
-                        <span class="section-kicker">DRINKS</span>
-                        <h2 class="h4 mt-2">Refreshing Beverage</h2>
-                        <p>A refreshing drink to accompany your meal or enjoy on its own.</p>
-                        <div class="d-flex justify-content-between align-items-center mt-3">
-                            <span class="text-secondary">Price to be confirmed</span>
-                            <a href="{% url 'core:order' %}" class="btn btn-brand">Order Now</a>
-                        </div>
-                    </div>
-                </article>
-            </div>
-
+            {% endfor %}
         </div>
     </div>
 </section>
+{% endfor %}
 
 <section class="cta-section section-padding">
     <div class="container text-center">
