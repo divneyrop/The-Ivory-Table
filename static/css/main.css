@@ -1,12 +1,13 @@
 
 :root {
-    --color-charcoal: #171715;
-    --color-dark: #292824;
-    --color-ivory: #F5F0E8;
-    --color-gold: #B58B50;
-    --color-muted: #A69B8D;
-    --color-border: rgba(181, 139, 80, 0.25);
 
+    --color-charcoal: #1A120E;
+    --color-dark: #3A2418;
+    --color-ivory: #6B4A2E;
+    --color-gold: #8d805b;
+    --color-muted: #6e3e03;
+    --color-border: rgb(220 129 0 / 25%);
+    
     --font-heading: "Playfair Display", Georgia, serif;
     --font-body: "DM Sans", sans-serif;
 
