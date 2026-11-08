@@ -1,149 +1,218 @@
 {% extends "base.html" %}
+{% load static %}
 
-{% block title %}Our Menu | The Ivory Table{% endblock %}
+{% block title %}Menu | The Ivory Table{% endblock %}
+{% block meta_description %}Explore starters, main courses, and desserts at The Ivory Table. Find something to share, savour, and enjoy around the table.{% endblock %}
 
-{% block meta_description %}
-Explore the menu at The Ivory Table.
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/menu.css' %}">
 {% endblock %}
 
 {% block content %}
-
-<section class="page-intro section-padding">
+<header class="menu-intro" aria-labelledby="menu-heading">
     <div class="container text-center">
-        <span class="section-kicker">A TASTE OF THE IVORY TABLE</span>
-        <h1 class="display-3 mt-3">Our Menu</h1>
-        <p class="lead mx-auto mt-3" style="max-width: 650px;">
-            Explore a selection of dishes prepared to bring good food
-            and memorable moments to the table.
+        <p class="section-kicker">A TASTE OF THE IVORY TABLE</p>
+        <h1 id="menu-heading">Our menu</h1>
+        <p class="menu-intro__lead">
+            Begin with a little something to share, settle into a favourite,
+            and leave room for dessert.
         </p>
+        <nav class="menu-category-nav" aria-label="Menu sections">
+            <a href="#starters">To begin <span aria-hidden="true">01</span></a>
+            <a href="#mains">Mains <span aria-hidden="true">02</span></a>
+            <a href="#desserts">Something sweet <span aria-hidden="true">03</span></a>
+        </nav>
     </div>
-</section>
+</header>
 
-<section class="section-padding">
-    <div class="container">
-
-        <div class="section-heading text-center mb-5">
-            <span class="section-kicker">EXPLORE OUR SELECTION</span>
-            <h2 class="display-5 mt-2">Made to Be Savoured</h2>
+<div class="menu-main">
+    <section class="menu-section" id="starters" aria-labelledby="starters-heading">
+        <div class="container">
+            <div class="menu-section__heading">
+                <p class="section-kicker">FIRST, SOMETHING TO SHARE</p>
+                <h2 id="starters-heading">To begin</h2>
+                <p>A thoughtful opening to a meal meant to be enjoyed at an easy pace.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <article class="menu-item h-100">
+                        <figure class="menu-item__image">
+                            <img src="{% static 'images/menu/Heirloom-Tomato&Burrata.jpg' %}" alt="Tomatoes and burrata arranged on a plate" width="500" height="500" loading="lazy" decoding="async">
+                        </figure>
+                        <div class="menu-item__body">
+                            <p class="menu-item__type">Starter</p>
+                            <h3>Heirloom Tomato &amp; Burrata</h3>
+                            <p>Ripe tomatoes and soft, creamy burrata come together in a fresh, simple opening.</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <article class="menu-item h-100">
+                        <figure class="menu-item__image">
+                            <img src="{% static 'images/menu/Spiced-Beef-Croquettes.jpg' %}" alt="Golden beef croquettes ready to share" width="676" height="676" loading="lazy" decoding="async">
+                        </figure>
+                        <div class="menu-item__body">
+                            <p class="menu-item__type">Starter</p>
+                            <h3>Spiced Beef Croquettes</h3>
+                            <p>Crisp, golden bites with warmly seasoned beef and a tender centre.</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <article class="menu-item h-100">
+                        <figure class="menu-item__image">
+                            <img src="{% static 'images/menu/Coconut-Chilli-Prawns.jpg' %}" alt="Prawns served with coconut and chilli" width="638" height="510" loading="lazy" decoding="async">
+                        </figure>
+                        <div class="menu-item__body">
+                            <p class="menu-item__type">Starter</p>
+                            <h3>Coconut-Chilli Prawns</h3>
+                            <p>Succulent prawns with coconut richness and a lively touch of chilli.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="row g-4">
-
-            <div class="col-md-6 col-lg-4">
-                <article class="dish-card h-100">
-                    <div class="dish-image-placeholder">
-                        <span>Dish Image</span>
-                    </div>
-                    <div class="p-4">
-                        <span class="section-kicker">STARTERS</span>
-                        <h2 class="h4 mt-2">Seasonal Starter</h2>
-                        <p>A carefully prepared opening to your dining experience, featuring a balanced mix of flavours.
-                        </p>
-                        <div class="d-flex justify-content-between align-items-center mt-3">
-                            <span class="text-secondary">Price to be confirmed</span>
-                            <a href="{% url 'core:order' %}" class="btn btn-brand">Order Now</a>
-                        </div>
-                    </div>
-                </article>
+    <section class="menu-section menu-section--alt" id="mains" aria-labelledby="mains-heading">
+        <div class="container">
+            <div class="menu-section__heading">
+                <p class="section-kicker">AT THE HEART OF THE TABLE</p>
+                <h2 id="mains-heading">Mains</h2>
+                <p>From comforting favourites to bright, plant-led plates, find a dish to make your own.</p>
             </div>
-
-            <div class="col-md-6 col-lg-4">
-                <article class="dish-card h-100">
-                    <div class="dish-image-placeholder">
-                        <span>Dish Image</span>
-                    </div>
-                    <div class="p-4">
-                        <span class="section-kicker">MAINS</span>
-                        <h2 class="h4 mt-2">House Signature Main</h2>
-                        <p>A satisfying main course prepared with complementary ingredients and thoughtful seasoning.
-                        </p>
-                        <div class="d-flex justify-content-between align-items-center mt-3">
-                            <span class="text-secondary">Price to be confirmed</span>
-                            <a href="{% url 'core:order' %}" class="btn btn-brand">Order Now</a>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <article class="menu-item h-100">
+                        <figure class="menu-item__image">
+                            <img src="{% static 'images/menu/Charcoal-Grilled Beef Fillet.jpg' %}" alt="Sliced beef fillet served over potato purée with sauce" width="1024" height="1024" loading="lazy" decoding="async">
+                        </figure>
+                        <div class="menu-item__body">
+                            <p class="menu-item__type">From the grill</p>
+                            <h3>Charcoal-Grilled Beef Fillet</h3>
+                            <p>Tender beef fillet, creamy potato purée, seasonal vegetables, and a rich red-wine jus.</p>
                         </div>
-                    </div>
-                </article>
-            </div>
-
-            <div class="col-md-6 col-lg-4">
-                <article class="dish-card h-100">
-                    <div class="dish-image-placeholder">
-                        <span>Dish Image</span>
-                    </div>
-                    <div class="p-4">
-                        <span class="section-kicker">GRILL</span>
-                        <h2 class="h4 mt-2">Grilled Selection</h2>
-                        <p>A flavourful grilled option served with a complementary accompaniment.</p>
-                        <div class="d-flex justify-content-between align-items-center mt-3">
-                            <span class="text-secondary">Price to be confirmed</span>
-                            <a href="{% url 'core:order' %}" class="btn btn-brand">Order Now</a>
+                    </article>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <article class="menu-item h-100">
+                        <figure class="menu-item__image">
+                            <img src="{% static 'images/menu/Swahili Coconut Prawn Curry.jpg' %}" alt="Coconut prawn curry served with rice" width="1024" height="1024" loading="lazy" decoding="async">
+                        </figure>
+                        <div class="menu-item__body">
+                            <p class="menu-item__type">Coastal influence</p>
+                            <h3>Swahili Coconut Prawn Curry</h3>
+                            <p>Prawns simmered in fragrant coconut curry with coastal spices, served with aromatic rice.</p>
                         </div>
-                    </div>
-                </article>
-            </div>
-
-            <div class="col-md-6 col-lg-4">
-                <article class="dish-card h-100">
-                    <div class="dish-image-placeholder">
-                        <span>Dish Image</span>
-                    </div>
-                    <div class="p-4">
-                        <span class="section-kicker">PLANT-BASED</span>
-                        <h2 class="h4 mt-2">Garden-Inspired Bowl</h2>
-                        <p>A colourful combination of ingredients brought together for a fresh and satisfying meal.</p>
-                        <div class="d-flex justify-content-between align-items-center mt-3">
-                            <span class="text-secondary">Price to be confirmed</span>
-                            <a href="{% url 'core:order' %}" class="btn btn-brand">Order Now</a>
+                    </article>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <article class="menu-item h-100">
+                        <figure class="menu-item__image">
+                            <img src="{% static 'images/menu/Slow-Braised Lamb Shank.jpg' %}" alt="Slow-braised lamb shank served with its rich sauce" width="582" height="519" loading="lazy" decoding="async">
+                        </figure>
+                        <div class="menu-item__body">
+                            <p class="menu-item__type">Slow cooked</p>
+                            <h3>Slow-Braised Lamb Shank</h3>
+                            <p>Slow-cooked until tender, with a deep, savoury sauce made for a leisurely meal.</p>
                         </div>
-                    </div>
-                </article>
-            </div>
-
-            <div class="col-md-6 col-lg-4">
-                <article class="dish-card h-100">
-                    <div class="dish-image-placeholder">
-                        <span>Dish Image</span>
-                    </div>
-                    <div class="p-4">
-                        <span class="section-kicker">SIDES</span>
-                        <h2 class="h4 mt-2">House Side</h2>
-                        <p>A versatile accompaniment designed to complement your choice of main course.</p>
-                        <div class="d-flex justify-content-between align-items-center mt-3">
-                            <span class="text-secondary">Price to be confirmed</span>
-                            <a href="{% url 'core:order' %}" class="btn btn-brand">Order Now</a>
+                    </article>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <article class="menu-item h-100">
+                        <figure class="menu-item__image">
+                            <img src="{% static 'images/menu/Roasted Cauliflower Steak.jpg' %}" alt="Roasted cauliflower presented as a plant-led main course" width="1080" height="1080" loading="lazy" decoding="async">
+                        </figure>
+                        <div class="menu-item__body">
+                            <p class="menu-item__type">Plant led</p>
+                            <h3>Roasted Cauliflower Steak</h3>
+                            <p>A golden-roasted, plant-led centrepiece with warm seasoning and a satisfying finish.</p>
                         </div>
-                    </div>
-                </article>
-            </div>
-
-            <div class="col-md-6 col-lg-4">
-                <article class="dish-card h-100">
-                    <div class="dish-image-placeholder">
-                        <span>Drink Image</span>
-                    </div>
-                    <div class="p-4">
-                        <span class="section-kicker">DRINKS</span>
-                        <h2 class="h4 mt-2">Refreshing Beverage</h2>
-                        <p>A refreshing drink to accompany your meal or enjoy on its own.</p>
-                        <div class="d-flex justify-content-between align-items-center mt-3">
-                            <span class="text-secondary">Price to be confirmed</span>
-                            <a href="{% url 'core:order' %}" class="btn btn-brand">Order Now</a>
+                    </article>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <article class="menu-item h-100">
+                        <figure class="menu-item__image">
+                            <img src="{% static 'images/menu/Pan-Seared Salmon.jpg' %}" alt="Pan-seared salmon plated with a seasonal accompaniment" width="1000" height="667" loading="lazy" decoding="async">
+                        </figure>
+                        <div class="menu-item__body">
+                            <p class="menu-item__type">From the pan</p>
+                            <h3>Pan-Seared Salmon</h3>
+                            <p>Salmon seared until delicately crisp outside and tender within, served with a seasonal accompaniment.</p>
                         </div>
-                    </div>
-                </article>
+                    </article>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <article class="menu-item h-100">
+                        <figure class="menu-item__image">
+                            <img src="{% static 'images/menu/Wild Mushroom Risotto.jpg' %}" alt="Wild mushroom risotto finished with herbs" width="800" height="533" loading="lazy" decoding="async">
+                        </figure>
+                        <div class="menu-item__body">
+                            <p class="menu-item__type">Vegetarian</p>
+                            <h3>Wild Mushroom Risotto</h3>
+                            <p>A comforting, slow-stirred risotto with earthy wild mushrooms and a creamy finish.</p>
+                        </div>
+                    </article>
+                </div>
             </div>
-
         </div>
-    </div>
-</section>
+    </section>
 
-<section class="cta-section section-padding">
+    <section class="menu-section" id="desserts" aria-labelledby="desserts-heading">
+        <div class="container">
+            <div class="menu-section__heading">
+                <p class="section-kicker">A LITTLE SOMETHING TO FINISH</p>
+                <h2 id="desserts-heading">Something sweet</h2>
+                <p>One last reason to linger at the table.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <article class="menu-item h-100">
+                        <figure class="menu-item__image">
+                            <img src="{% static 'images/menu/Kenyan Coffee Crème Brûlée.jpg' %}" alt="Coffee crème brûlée topped with cream and crisp caramel" width="2500" height="1667" loading="lazy" decoding="async">
+                        </figure>
+                        <div class="menu-item__body">
+                            <p class="menu-item__type">A local touch</p>
+                            <h3>Kenyan Coffee Crème Brûlée</h3>
+                            <p>Silky coffee-infused custard beneath a delicate layer of crisp caramel.</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <article class="menu-item h-100">
+                        <figure class="menu-item__image">
+                            <img src="{% static 'images/menu/Mango & Passion Pavlova.jpg' %}" alt="Meringue pavlova finished with mango and passion fruit" width="3840" height="2561" loading="lazy" decoding="async">
+                        </figure>
+                        <div class="menu-item__body">
+                            <p class="menu-item__type">Fresh &amp; bright</p>
+                            <h3>Mango &amp; Passion Pavlova</h3>
+                            <p>Light meringue with mango and passion fruit for a bright, tropical finish.</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <article class="menu-item h-100">
+                        <figure class="menu-item__image">
+                            <img src="{% static 'images/menu/Dark Chocolate Fondant.jpg' %}" alt="Dark chocolate fondant with a soft centre" width="1536" height="1024" loading="lazy" decoding="async">
+                        </figure>
+                        <div class="menu-item__body">
+                            <p class="menu-item__type">Rich &amp; indulgent</p>
+                            <h3>Dark Chocolate Fondant</h3>
+                            <p>A warm chocolate dessert with a soft centre and a rich, lingering finish.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<section class="menu-visit" aria-labelledby="menu-visit-heading">
     <div class="container text-center">
-        <span class="section-kicker">MAKE IT A MOMENT</span>
-        <h2 class="display-4 mt-3">Found something you like?</h2>
-        <p class="mt-3">Explore your ordering options and plan your next meal.</p>
-        <a href="{% url 'core:order' %}" class="btn btn-brand mt-3">Start an Order</a>
+        <p class="section-kicker">MAKE TIME FOR THE TABLE</p>
+        <h2 id="menu-visit-heading">Found something to savour?</h2>
+        <p>Choose a day, bring your favourite people, and we’ll save you a place.</p>
+        <a class="btn btn-brand" href="{% url 'reservations:reservations' %}">Plan a visit</a>
     </div>
 </section>
-
 {% endblock %}
